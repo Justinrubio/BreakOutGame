@@ -1,0 +1,3 @@
+/Users/justinrubio/CLionProjects/BreakoutGame/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/justinrubio/CLionProjects/BreakoutGame/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/justinrubio/CLionProjects/BreakoutGame/cmake-build-debug/CMakeFiles/HelloSFML.dir
