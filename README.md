@@ -1,5 +1,6 @@
 # BreakOutGame
 The classic breakout racquet-ball style game!
+
 Displays ability of using:
 - Procedural programming
 - Data structures
