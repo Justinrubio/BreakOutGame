@@ -1,14 +1,17 @@
-
 /* --------------------------------------------------------
  *    File: BreakoutGame.cpp
  *  Author: Justin Rubio
- *   Class: COP 2001
- * Purpose: The classic breakout desktop game.
+ *   Class: Computer Security
+ * Purpose: The classic breakout desktop game (improved)
  * -------------------------------------------------------- */
 
 #include <SFML/Graphics.hpp>
 #include <cmath>                //  for trig/geometry/linear functions
 #include "breakout_defs.h"
+#include <chrono>
+#include <iostream>
+
+using namespace std::chrono;
 
 // Function declarations
 // --------------------------------------------------------
@@ -56,6 +59,9 @@ int main() {
     sf::Time stopTime = startTime;
     float delta = 0.0;
 
+    // tracks how long game was running for
+    auto start = high_resolution_clock::now();
+
     bool started = false;
     bool gameOver = false;
     while (!gameOver)
@@ -95,6 +101,14 @@ int main() {
         render(window, theBall, delta, walls, paddle, bricks);
 
     } // end main game loop
+
+    //get time when game ended
+    auto stop = high_resolution_clock::now();
+
+    // get difference from stop - start = timeElapsed
+    auto timeElapsed = duration_cast<seconds>(stop - start);
+
+    std::cout<<"\nTime Elapsed: "<< timeElapsed.count()<< " seconds\n";
 
     // close graphics window
     window.close();
