@@ -50,6 +50,10 @@ const float SPEED_TIME = (3.0 * 1000.0) * 30.0;             //
 const float BALL_SPEED_X = BALL_RADIUS * 10.0 / 1000.0;    // speed horizontally
 const float BALL_SPEED_Y = BALL_RADIUS * 8.5 / 1000.0;   // span  vertically
 
+bool paused(){
+    return false;
+};
+
 
 // Type definitions
 // --------------------------------------------------------
@@ -62,7 +66,8 @@ enum Direction{
     Up,
     Right,
     Down,
-    Start
+    Start,
+    Pause
 };
 
 
