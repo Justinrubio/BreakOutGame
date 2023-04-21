@@ -64,6 +64,7 @@ int main() {
 
     bool started = false;
     bool gameOver = false;
+    bool pauseGame;
     while (!gameOver)
     {
         // calculates the frame time
@@ -109,6 +110,7 @@ int main() {
     auto timeElapsed = duration_cast<seconds>(stop - start);
 
     std::cout<<"\nTime Elapsed: "<< timeElapsed.count()<< " seconds\n";
+    std::cout<<"\nReset ball "<< restartCount<< " times.\n";
 
     // close graphics window
     window.close();
@@ -275,6 +277,9 @@ Direction processInput() {
     else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
         input = Start;
     }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+        input = Restart;
+    }
 
     return input;
 } // end getUserInput
@@ -322,6 +327,12 @@ bool update(Direction &input, Ball &ball, float delta, Borders walls,
                     started = true;
                 }
                 break;
+                //case Start
+            case Restart:
+                started = false;
+                restartCount++;
+                break;
+
         }
         // clear input
         input = None;
