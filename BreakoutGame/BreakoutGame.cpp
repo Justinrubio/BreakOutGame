@@ -89,7 +89,8 @@ int main() {
         // ------------------------------------------------
         if (delta >= FRAME_RATE) {
 
-            gameOver = update(userInput, theBall, delta, walls, paddle, started, bricks);
+            if (!paused)
+                gameOver = update(userInput, theBall, delta, walls, paddle, started, bricks);
 
             // subtract the frame-rate from the current frame-time for each full frame covered by this update
             while (delta >= FRAME_RATE)
@@ -275,6 +276,9 @@ Direction processInput() {
     else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
         input = Start;
     }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
+        input = Pause;
+    }
 
     return input;
 } // end getUserInput
@@ -322,6 +326,11 @@ bool update(Direction &input, Ball &ball, float delta, Borders walls,
                     started = true;
                 }
                 break;
+                //case Start
+            case Pause:
+                paused();
+                break;
+
         }
         // clear input
         input = None;
